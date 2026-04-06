@@ -66,6 +66,8 @@ The system collects live data from **40 theme parks** every 15 minutes, stores i
 
 ```
 theme_parks/
+├── data/
+│   └── sample_100k.csv            # 100k representative records (all 40 parks)
 ├── eda/
 │   └── notebooks/
 │       ├── 01_overview.ipynb          # Dataset summary and data quality
@@ -143,19 +145,6 @@ Validation: Feb 2026             (~10%)
 Test:       Mar 2026             (~10%)
 ```
 
-### Running the pipeline
-
-```bash
-# Install dependencies
-pip install -r ml/requirements.txt
-
-# Build features and train
-python ml/src/train.py
-
-# Generate predictions
-python ml/src/predict.py
-```
-
 ### Model performance
 
 ```
@@ -172,8 +161,6 @@ Improvement:                      68%
 ### Prerequisites
 
 - Python 3.12+
-- PostgreSQL 16 (or access to the remote DB)
-- A `.env` file in the project root with DB credentials (see `.env.example`)
 
 ### Installation
 
@@ -188,17 +175,18 @@ venv\Scripts\activate        # Windows
 pip install -r ml/requirements.txt
 ```
 
-### Environment variables
+### Running the notebooks
 
-Create a `.env` file in the root (never commit this):
+A representative sample of **100,000 real observations** is included in `data/sample_100k.csv` — covering all 40 parks with the most recent records available. No database access needed.
 
-```env
-DB_HOST=your_host
-DB_PORT=5432
-DB_NAME=theme_parks
-DB_USER=postgres
-DB_PASSWORD=your_password
 ```
+data/
+└── sample_100k.csv   # 100k rows · 40 parks · Oct 2025 – Apr 2026
+```
+
+Simply open any notebook in `eda/` or `ml/notebooks/` and point the data loading cell to this file.
+
+> **Note:** The full dataset (5M+ records) lives in a private PostgreSQL database on Hetzner. If you need access for research purposes, feel free to reach out.
 
 ---
 
@@ -311,6 +299,40 @@ Mejora:                             68%
 
 ---
 
+## Instalación y uso
+
+### Requisitos
+
+- Python 3.12+
+
+### Instalación
+
+```bash
+git clone https://github.com/Sntncs92/theme-parks-analytics.git
+cd theme-parks-analytics
+
+python -m venv venv
+venv\Scripts\activate        # Windows
+# source venv/bin/activate   # macOS / Linux
+
+pip install -r ml/requirements.txt
+```
+
+### Ejecutar los notebooks
+
+El repositorio incluye una muestra representativa de **100.000 observaciones reales** en `data/sample_100k.csv` — con todos los parques representados y los registros más recientes disponibles. No se necesita acceso a base de datos.
+
+```
+data/
+└── sample_100k.csv   # 100k filas · 40 parques · Oct 2025 – Abr 2026
+```
+
+Abre cualquier notebook de `eda/` o `ml/notebooks/` y apunta la celda de carga de datos a este archivo.
+
+> **Nota:** El dataset completo (5M+ registros) vive en una base de datos PostgreSQL privada en Hetzner. Si necesitas acceso por motivos de investigación, no dudes en contactar.
+
+---
+
 ## Hoja de ruta
 
 - [x] Fase 1 — Infraestructura y colector de datos 24/7
@@ -325,7 +347,7 @@ Mejora:                             68%
 ## Autor
 
 **Daniel Frases**  
-Data Scientist · ML Engineer (In progress)
+Data Scientist · ML Engineer
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-daniel--frases-0A66C2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/daniel-frases/)
 [![GitHub](https://img.shields.io/badge/GitHub-Sntncs92-181717?style=flat-square&logo=github)](https://github.com/Sntncs92)
