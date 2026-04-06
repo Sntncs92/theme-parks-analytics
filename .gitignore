@@ -1,0 +1,23 @@
+# Credenciales
+.env
+
+# Entorno virtual
+venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Modelos (grandes y reproducibles)
+ml/models/*.pkl
+
+# Internal files de Anconda
+anaconda_projects/
+
+#Outputs
+outputs/
+
+#Los gráficos de los notebooks
+eda/*.png

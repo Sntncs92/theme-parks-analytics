@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b49421765fd4e47bad4067d2150c82cb {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_b49421765fd4e47bad4067d2150c82cb" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b49421765fd4e47bad4067d2150c82cb = L.map(
+                "map_b49421765fd4e47bad4067d2150c82cb",
+                {
+                    center: [30.0, 10.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 2,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_8e96a2b0e21828670b77dd3e26f990e4 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8e96a2b0e21828670b77dd3e26f990e4.addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+            var circle_marker_449ba426a94b78f29f87e021fa6b3dd1 = L.circleMarker(
+                [52.9858, -1.8924],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_2c547ec8eaa56702885f0a18aef93e9b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_69bbba6f647f01017253c387e3368a41 = $(`<div id="html_69bbba6f647f01017253c387e3368a41" style="width: 100.0%; height: 100.0%;">Alton Towers<br>Espera media: 10.9 min</div>`)[0];
+                popup_2c547ec8eaa56702885f0a18aef93e9b.setContent(html_69bbba6f647f01017253c387e3368a41);
+            
+        
+
+        circle_marker_449ba426a94b78f29f87e021fa6b3dd1.bindPopup(popup_2c547ec8eaa56702885f0a18aef93e9b)
+        ;
+
+        
+    
+    
+            var circle_marker_dede6e8e0d5794469f76414497f14b3f = L.circleMarker(
+                [28.3553, -81.5901],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.993939393939394, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_bc259ddb475cfae42164678479ce9c74 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_76d6b38f1d3d9f542f150bbf767c10f4 = $(`<div id="html_76d6b38f1d3d9f542f150bbf767c10f4" style="width: 100.0%; height: 100.0%;">Animal Kingdom<br>Espera media: 30.0 min</div>`)[0];
+                popup_bc259ddb475cfae42164678479ce9c74.setContent(html_76d6b38f1d3d9f542f150bbf767c10f4);
+            
+        
+
+        circle_marker_dede6e8e0d5794469f76414497f14b3f.bindPopup(popup_bc259ddb475cfae42164678479ce9c74)
+        ;
+
+        
+    
+    
+            var circle_marker_c9ecdcb4b13de852cc57b8a1f04dcb90 = L.circleMarker(
+                [28.0374, -82.4073],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_33dce742bfc8d930b1c569b00e079ab6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_35faa69ab3f5c2e31f1e8fc7d4b0474d = $(`<div id="html_35faa69ab3f5c2e31f1e8fc7d4b0474d" style="width: 100.0%; height: 100.0%;">Busch Gardens Tampa<br>Espera media: 15.5 min</div>`)[0];
+                popup_33dce742bfc8d930b1c569b00e079ab6.setContent(html_35faa69ab3f5c2e31f1e8fc7d4b0474d);
+            
+        
+
+        circle_marker_c9ecdcb4b13de852cc57b8a1f04dcb90.bindPopup(popup_33dce742bfc8d930b1c569b00e079ab6)
+        ;
+
+        
+    
+    
+            var circle_marker_5aafc56649e26c0700475303845727a0 = L.circleMarker(
+                [48.868, 2.7836],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.7600866895430745, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_2ab5f2daa074fbe9be5998083aac75b2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ccd50cb6cd4702255700273bd9268b74 = $(`<div id="html_ccd50cb6cd4702255700273bd9268b74" style="width: 100.0%; height: 100.0%;">Disney Adventure World<br>Espera media: 28.8 min</div>`)[0];
+                popup_2ab5f2daa074fbe9be5998083aac75b2.setContent(html_ccd50cb6cd4702255700273bd9268b74);
+            
+        
+
+        circle_marker_5aafc56649e26c0700475303845727a0.bindPopup(popup_2ab5f2daa074fbe9be5998083aac75b2)
+        ;
+
+        
+    
+    
+            var circle_marker_c64a1c01a2d20548de128e80988af01b = L.circleMarker(
+                [33.8091, -117.9187],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.011000555280416, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_73a56ef49ca048673700e22153dc5a71 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_93f2fd6b376779611a103bdd3fdc8aa7 = $(`<div id="html_93f2fd6b376779611a103bdd3fdc8aa7" style="width: 100.0%; height: 100.0%;">Disney California Adventure Park<br>Espera media: 30.1 min</div>`)[0];
+                popup_73a56ef49ca048673700e22153dc5a71.setContent(html_93f2fd6b376779611a103bdd3fdc8aa7);
+            
+        
+
+        circle_marker_c64a1c01a2d20548de128e80988af01b.bindPopup(popup_73a56ef49ca048673700e22153dc5a71)
+        ;
+
+        
+    
+    
+            var circle_marker_e2fd6f9265367157c66c4db169f429b3 = L.circleMarker(
+                [28.3575, -81.5583],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.707852824924435, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_4f89a9a8d4e8a627231fa3ff38ec3dad = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_577851bd45c2a8ed8d3d96a2494c1b74 = $(`<div id="html_577851bd45c2a8ed8d3d96a2494c1b74" style="width: 100.0%; height: 100.0%;">Disney's Hollywood Studios<br>Espera media: 43.5 min</div>`)[0];
+                popup_4f89a9a8d4e8a627231fa3ff38ec3dad.setContent(html_577851bd45c2a8ed8d3d96a2494c1b74);
+            
+        
+
+        circle_marker_e2fd6f9265367157c66c4db169f429b3.bindPopup(popup_4f89a9a8d4e8a627231fa3ff38ec3dad)
+        ;
+
+        
+    
+    
+            var circle_marker_e9200cba6962734157ea6b43def05611 = L.circleMarker(
+                [48.8674, 2.7836],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_96512f68cee445f2e7ed470c2f46a371 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8b124009fcd06a295ff06e1be50df997 = $(`<div id="html_8b124009fcd06a295ff06e1be50df997" style="width: 100.0%; height: 100.0%;">Disneyland Paris<br>Espera media: 16.9 min</div>`)[0];
+                popup_96512f68cee445f2e7ed470c2f46a371.setContent(html_8b124009fcd06a295ff06e1be50df997);
+            
+        
+
+        circle_marker_e9200cba6962734157ea6b43def05611.bindPopup(popup_96512f68cee445f2e7ed470c2f46a371)
+        ;
+
+        
+    
+    
+            var circle_marker_9a45da6fb353dcbd301c01446f4a35fe = L.circleMarker(
+                [33.8121, -117.919],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_bec8ced45dfeb9569660536cf9e447d5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4b30c2ff9397c38f1cd52aa09fd35c6d = $(`<div id="html_4b30c2ff9397c38f1cd52aa09fd35c6d" style="width: 100.0%; height: 100.0%;">Disneyland Park<br>Espera media: 20.7 min</div>`)[0];
+                popup_bec8ced45dfeb9569660536cf9e447d5.setContent(html_4b30c2ff9397c38f1cd52aa09fd35c6d);
+            
+        
+
+        circle_marker_9a45da6fb353dcbd301c01446f4a35fe.bindPopup(popup_bec8ced45dfeb9569660536cf9e447d5)
+        ;
+
+        
+    
+    
+            var circle_marker_e4ec972fca676165995d8728ac814e05 = L.circleMarker(
+                [35.7954, -83.5285],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.158672798948752, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_f7c68bd6a42146f6607ae23be851bdd0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_114f653602300d53557f58e14e3c9f87 = $(`<div id="html_114f653602300d53557f58e14e3c9f87" style="width: 100.0%; height: 100.0%;">Dollywood<br>Espera media: 25.8 min</div>`)[0];
+                popup_f7c68bd6a42146f6607ae23be851bdd0.setContent(html_114f653602300d53557f58e14e3c9f87);
+            
+        
+
+        circle_marker_e4ec972fca676165995d8728ac814e05.bindPopup(popup_f7c68bd6a42146f6607ae23be851bdd0)
+        ;
+
+        
+    
+    
+            var circle_marker_9e5efed565e543c40f18292bf9ab55de = L.circleMarker(
+                [28.3747, -81.5494],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.499048696457036, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_25ae06dd6edd82b4f0e49df4acab8f92 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dc3abd0f5a733c3782f313df1698301e = $(`<div id="html_dc3abd0f5a733c3782f313df1698301e" style="width: 100.0%; height: 100.0%;">EPCOT<br>Espera media: 32.5 min</div>`)[0];
+                popup_25ae06dd6edd82b4f0e49df4acab8f92.setContent(html_dc3abd0f5a733c3782f313df1698301e);
+            
+        
+
+        circle_marker_9e5efed565e543c40f18292bf9ab55de.bindPopup(popup_25ae06dd6edd82b4f0e49df4acab8f92)
+        ;
+
+        
+    
+    
+            var circle_marker_43af1b28ab06380bb26fbe6acf273e62 = L.circleMarker(
+                [51.6499, 5.0461],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_514d2eacda4d47f6be0cddb4c794046f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_276a39042bd103859060ce0528832fe3 = $(`<div id="html_276a39042bd103859060ce0528832fe3" style="width: 100.0%; height: 100.0%;">Efteling<br>Espera media: 14.0 min</div>`)[0];
+                popup_514d2eacda4d47f6be0cddb4c794046f.setContent(html_276a39042bd103859060ce0528832fe3);
+            
+        
+
+        circle_marker_43af1b28ab06380bb26fbe6acf273e62.bindPopup(popup_514d2eacda4d47f6be0cddb4c794046f)
+        ;
+
+        
+    
+    
+            var circle_marker_98efe1684568ce641e2667a00cfcd0b0 = L.circleMarker(
+                [48.2667, 7.722],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_b696f724254d8defda4a21b3fd35a56f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8941657daeb66cb66e35e18c5d4eae2d = $(`<div id="html_8941657daeb66cb66e35e18c5d4eae2d" style="width: 100.0%; height: 100.0%;">Europa Park<br>Espera media: 4.3 min</div>`)[0];
+                popup_b696f724254d8defda4a21b3fd35a56f.setContent(html_8941657daeb66cb66e35e18c5d4eae2d);
+            
+        
+
+        circle_marker_98efe1684568ce641e2667a00cfcd0b0.bindPopup(popup_b696f724254d8defda4a21b3fd35a56f)
+        ;
+
+        
+    
+    
+            var circle_marker_028ba5007216a5e1b1166cba13429a13 = L.circleMarker(
+                [45.4469, 10.718],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_433a5d991d35b3763511c42416043283 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_79e66523a332b7dad4d2560c983dcbeb = $(`<div id="html_79e66523a332b7dad4d2560c983dcbeb" style="width: 100.0%; height: 100.0%;">Gardaland<br>Espera media: 7.8 min</div>`)[0];
+                popup_433a5d991d35b3763511c42416043283.setContent(html_79e66523a332b7dad4d2560c983dcbeb);
+            
+        
+
+        circle_marker_028ba5007216a5e1b1166cba13429a13.bindPopup(popup_433a5d991d35b3763511c42416043283)
+        ;
+
+        
+    
+    
+            var circle_marker_16d10425447f87c10dea385ecbdd6eaa = L.circleMarker(
+                [40.2874, -76.6567],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_fd350ef82e782d8344893d039f7d678e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_60d3bfaf79f19b103e0ad120cc43a3f2 = $(`<div id="html_60d3bfaf79f19b103e0ad120cc43a3f2" style="width: 100.0%; height: 100.0%;">Hersheypark<br>Espera media: 10.5 min</div>`)[0];
+                popup_fd350ef82e782d8344893d039f7d678e.setContent(html_60d3bfaf79f19b103e0ad120cc43a3f2);
+            
+        
+
+        circle_marker_16d10425447f87c10dea385ecbdd6eaa.bindPopup(popup_fd350ef82e782d8344893d039f7d678e)
+        ;
+
+        
+    
+    
+            var circle_marker_6e2c0737333526073bb8e494d921b59a = L.circleMarker(
+                [22.313, 114.0413],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.040328177289761, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_ed3e78e3b848f1506d1764b496d6d45a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d992f12c03daef5313b774f310d727ad = $(`<div id="html_d992f12c03daef5313b774f310d727ad" style="width: 100.0%; height: 100.0%;">Hong Kong Disneyland Park<br>Espera media: 30.2 min</div>`)[0];
+                popup_ed3e78e3b848f1506d1764b496d6d45a.setContent(html_d992f12c03daef5313b774f310d727ad);
+            
+        
+
+        circle_marker_6e2c0737333526073bb8e494d921b59a.bindPopup(popup_ed3e78e3b848f1506d1764b496d6d45a)
+        ;
+
+        
+    
+    
+            var circle_marker_d76add58cdab29787c04b8b080e1c7fc = L.circleMarker(
+                [33.8442, -117.9987],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_93fcb24f63a71c2cbbc0cceeaa57616f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_caa78b2e61bbcc5122e7d95d7e892108 = $(`<div id="html_caa78b2e61bbcc5122e7d95d7e892108" style="width: 100.0%; height: 100.0%;">Knott's Berry Farm<br>Espera media: 20.0 min</div>`)[0];
+                popup_93fcb24f63a71c2cbbc0cceeaa57616f.setContent(html_caa78b2e61bbcc5122e7d95d7e892108);
+            
+        
+
+        circle_marker_d76add58cdab29787c04b8b080e1c7fc.bindPopup(popup_93fcb24f63a71c2cbbc0cceeaa57616f)
+        ;
+
+        
+    
+    
+            var circle_marker_d1c340068c66ecb508fb5ea9e6fdee2e = L.circleMarker(
+                [57.696, 11.9919],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_f6c1b24fc28b187f8aa0b1fff47d7bb5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_62807cdf7dbfc5c31e21bc000e7a75b9 = $(`<div id="html_62807cdf7dbfc5c31e21bc000e7a75b9" style="width: 100.0%; height: 100.0%;">Liseberg<br>Espera media: 14.5 min</div>`)[0];
+                popup_f6c1b24fc28b187f8aa0b1fff47d7bb5.setContent(html_62807cdf7dbfc5c31e21bc000e7a75b9);
+            
+        
+
+        circle_marker_d1c340068c66ecb508fb5ea9e6fdee2e.bindPopup(popup_f6c1b24fc28b187f8aa0b1fff47d7bb5)
+        ;
+
+        
+    
+    
+            var circle_marker_ebc323c1abf6c0281042f7bd18ee9762 = L.circleMarker(
+                [28.4177, -81.5812],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_51d3b7b52970c3d13824c5f81d865559 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_178c73d6439848c72bfe87132836f863 = $(`<div id="html_178c73d6439848c72bfe87132836f863" style="width: 100.0%; height: 100.0%;">Magic Kingdom<br>Espera media: 23.2 min</div>`)[0];
+                popup_51d3b7b52970c3d13824c5f81d865559.setContent(html_178c73d6439848c72bfe87132836f863);
+            
+        
+
+        circle_marker_ebc323c1abf6c0281042f7bd18ee9762.bindPopup(popup_51d3b7b52970c3d13824c5f81d865559)
+        ;
+
+        
+    
+    
+            var circle_marker_36f43cc720745e71e6a3faca71e9ca0e = L.circleMarker(
+                [49.1358, 2.5717],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_eadb6163c0c26522b5470f4dbff04d8c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5726e5c4226f40bd5037e717ec9476e8 = $(`<div id="html_5726e5c4226f40bd5037e717ec9476e8" style="width: 100.0%; height: 100.0%;">Parc Asterix<br>Espera media: 19.0 min</div>`)[0];
+                popup_eadb6163c0c26522b5470f4dbff04d8c.setContent(html_5726e5c4226f40bd5037e717ec9476e8);
+            
+        
+
+        circle_marker_36f43cc720745e71e6a3faca71e9ca0e.bindPopup(popup_eadb6163c0c26522b5470f4dbff04d8c)
+        ;
+
+        
+    
+    
+            var circle_marker_79ca078e951b8eda481bc6b70739e90d = L.circleMarker(
+                [40.2719, -3.5705],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_4b24bba2a6fe054e84ac5173dbbe72a4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b0b8ccbf031dcaef069178a709205aad = $(`<div id="html_b0b8ccbf031dcaef069178a709205aad" style="width: 100.0%; height: 100.0%;">Parque Warner Madrid<br>Espera media: 20.0 min</div>`)[0];
+                popup_4b24bba2a6fe054e84ac5173dbbe72a4.setContent(html_b0b8ccbf031dcaef069178a709205aad);
+            
+        
+
+        circle_marker_79ca078e951b8eda481bc6b70739e90d.bindPopup(popup_4b24bba2a6fe054e84ac5173dbbe72a4)
+        ;
+
+        
+    
+    
+            var circle_marker_a98b3ae1ccaa674daa404ba5a45bf0ac = L.circleMarker(
+                [50.7994, 6.8796],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_3d076d010e858f3e2cacaa34fbad6a9b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b3ff3a108bd735bd1d7d44b8231b482c = $(`<div id="html_b3ff3a108bd735bd1d7d44b8231b482c" style="width: 100.0%; height: 100.0%;">Phantasialand<br>Espera media: 18.3 min</div>`)[0];
+                popup_3d076d010e858f3e2cacaa34fbad6a9b.setContent(html_b3ff3a108bd735bd1d7d44b8231b482c);
+            
+        
+
+        circle_marker_a98b3ae1ccaa674daa404ba5a45bf0ac.bindPopup(popup_3d076d010e858f3e2cacaa34fbad6a9b)
+        ;
+
+        
+    
+    
+            var circle_marker_48ee1e08bdb271a6424a8e99e2d71c36 = L.circleMarker(
+                [41.0859, 1.1563],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_f15eb2f5d5ae299fea127c2215191753 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cc2b0960f64d3914a94c3ada55479f77 = $(`<div id="html_cc2b0960f64d3914a94c3ada55479f77" style="width: 100.0%; height: 100.0%;">PortAventura<br>Espera media: 20.4 min</div>`)[0];
+                popup_f15eb2f5d5ae299fea127c2215191753.setContent(html_cc2b0960f64d3914a94c3ada55479f77);
+            
+        
+
+        circle_marker_48ee1e08bdb271a6424a8e99e2d71c36.bindPopup(popup_f15eb2f5d5ae299fea127c2215191753)
+        ;
+
+        
+    
+    
+            var circle_marker_af1be90312245dc2c18c22a08eb8b3b2 = L.circleMarker(
+                [28.4119, -81.4623],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_aeb5c514bb8bd5bf6b243c38542e102a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2bf8f1006396c5614945d14521f6399d = $(`<div id="html_2bf8f1006396c5614945d14521f6399d" style="width: 100.0%; height: 100.0%;">SeaWorld Orlando<br>Espera media: 16.7 min</div>`)[0];
+                popup_aeb5c514bb8bd5bf6b243c38542e102a.setContent(html_2bf8f1006396c5614945d14521f6399d);
+            
+        
+
+        circle_marker_af1be90312245dc2c18c22a08eb8b3b2.bindPopup(popup_aeb5c514bb8bd5bf6b243c38542e102a)
+        ;
+
+        
+    
+    
+            var circle_marker_67edf99d5b0a4ff0c7cd489823fa85c0 = L.circleMarker(
+                [31.144, 121.657],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.420954447680505, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_5e11ccac0e419f75778a2139cd53eac5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_52361e5570cace9ecd6492b2c20ba491 = $(`<div id="html_52361e5570cace9ecd6492b2c20ba491" style="width: 100.0%; height: 100.0%;">Shanghai Disneyland<br>Espera media: 32.1 min</div>`)[0];
+                popup_5e11ccac0e419f75778a2139cd53eac5.setContent(html_52361e5570cace9ecd6492b2c20ba491);
+            
+        
+
+        circle_marker_67edf99d5b0a4ff0c7cd489823fa85c0.bindPopup(popup_5e11ccac0e419f75778a2139cd53eac5)
+        ;
+
+        
+    
+    
+            var circle_marker_107bf122d733d440ef0e7cb86a5ed499 = L.circleMarker(
+                [34.4255, -118.5976],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_9cac2a8c72a27a710f192af6e51fa8dc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4a8168d9ecab3351f2b29e1e4042e69e = $(`<div id="html_4a8168d9ecab3351f2b29e1e4042e69e" style="width: 100.0%; height: 100.0%;">Six Flags Magic Mountain<br>Espera media: 11.7 min</div>`)[0];
+                popup_9cac2a8c72a27a710f192af6e51fa8dc.setContent(html_4a8168d9ecab3351f2b29e1e4042e69e);
+            
+        
+
+        circle_marker_107bf122d733d440ef0e7cb86a5ed499.bindPopup(popup_9cac2a8c72a27a710f192af6e51fa8dc)
+        ;
+
+        
+    
+    
+            var circle_marker_253f8a67b79b2db03f07ceb490174b38 = L.circleMarker(
+                [19.2963, -99.2091],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_a6c7579971a9ff63a208f2e4d4c1ea69 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_65dca21abf50eca4d6a6410cb2e4ccbc = $(`<div id="html_65dca21abf50eca4d6a6410cb2e4ccbc" style="width: 100.0%; height: 100.0%;">Six Flags Mexico<br>Espera media: 17.8 min</div>`)[0];
+                popup_a6c7579971a9ff63a208f2e4d4c1ea69.setContent(html_65dca21abf50eca4d6a6410cb2e4ccbc);
+            
+        
+
+        circle_marker_253f8a67b79b2db03f07ceb490174b38.bindPopup(popup_a6c7579971a9ff63a208f2e4d4c1ea69)
+        ;
+
+        
+    
+    
+            var circle_marker_caa0257570a4de11f44eb3d5775a054b = L.circleMarker(
+                [32.7566, -97.0669],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.297640562248997, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_ca8d247afa929d8578d51d6685189a93 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d99c2895dab5a48a147820467970677c = $(`<div id="html_d99c2895dab5a48a147820467970677c" style="width: 100.0%; height: 100.0%;">Six Flags Over Texas<br>Espera media: 46.5 min</div>`)[0];
+                popup_ca8d247afa929d8578d51d6685189a93.setContent(html_d99c2895dab5a48a147820467970677c);
+            
+        
+
+        circle_marker_caa0257570a4de11f44eb3d5775a054b.bindPopup(popup_ca8d247afa929d8578d51d6685189a93)
+        ;
+
+        
+    
+    
+            var circle_marker_8ede8f97302400574d2f847957976b89 = L.circleMarker(
+                [35.6267, 139.885],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.877416202254773, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_74876e2dd63e541fa9b4d7e89d758d2f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_31ad0a6247d8bd49f0e9aed7838feacf = $(`<div id="html_31ad0a6247d8bd49f0e9aed7838feacf" style="width: 100.0%; height: 100.0%;">Tokyo Disney Sea<br>Espera media: 39.4 min</div>`)[0];
+                popup_74876e2dd63e541fa9b4d7e89d758d2f.setContent(html_31ad0a6247d8bd49f0e9aed7838feacf);
+            
+        
+
+        circle_marker_8ede8f97302400574d2f847957976b89.bindPopup(popup_74876e2dd63e541fa9b4d7e89d758d2f)
+        ;
+
+        
+    
+    
+            var circle_marker_fd074f510472487e284f29483957a6f8 = L.circleMarker(
+                [35.6329, 139.8804],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.199914308489438, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_1a21f1262519385a31b5b64b1424d1c1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8c33fdcc191d3fdf2ad86e0175375d7f = $(`<div id="html_8c33fdcc191d3fdf2ad86e0175375d7f" style="width: 100.0%; height: 100.0%;">Tokyo DisneyLand<br>Espera media: 26.0 min</div>`)[0];
+                popup_1a21f1262519385a31b5b64b1424d1c1.setContent(html_8c33fdcc191d3fdf2ad86e0175375d7f);
+            
+        
+
+        circle_marker_fd074f510472487e284f29483957a6f8.bindPopup(popup_1a21f1262519385a31b5b64b1424d1c1)
+        ;
+
+        
+    
+    
+            var circle_marker_53d443e8002df4fff1478a41e388df8b = L.circleMarker(
+                [28.4719, -81.4706],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.4979030330044365, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_a319161be0ded0c512e891e63f62c551 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_01c11ddff4b2a3860eb1826d44104441 = $(`<div id="html_01c11ddff4b2a3860eb1826d44104441" style="width: 100.0%; height: 100.0%;">Universal Islands of Adventure<br>Espera media: 32.5 min</div>`)[0];
+                popup_a319161be0ded0c512e891e63f62c551.setContent(html_01c11ddff4b2a3860eb1826d44104441);
+            
+        
+
+        circle_marker_53d443e8002df4fff1478a41e388df8b.bindPopup(popup_a319161be0ded0c512e891e63f62c551)
+        ;
+
+        
+    
+    
+            var circle_marker_86595e10575046c178bf37514f874c4f = L.circleMarker(
+                [34.1381, -118.3534],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_05c4e264f1db105aa41d9f144e827bb7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5bdc5c34d39f0de0a671b37a8ca47895 = $(`<div id="html_5bdc5c34d39f0de0a671b37a8ca47895" style="width: 100.0%; height: 100.0%;">Universal Studios<br>Espera media: 20.0 min</div>`)[0];
+                popup_05c4e264f1db105aa41d9f144e827bb7.setContent(html_5bdc5c34d39f0de0a671b37a8ca47895);
+            
+        
+
+        circle_marker_86595e10575046c178bf37514f874c4f.bindPopup(popup_05c4e264f1db105aa41d9f144e827bb7)
+        ;
+
+        
+    
+    
+            var circle_marker_d10115be66588a429b9c56fc08219d5d = L.circleMarker(
+                [28.4749, -81.4679],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_274daa75f512f48183539b21d427713c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1578824a55beb715af41318939aad454 = $(`<div id="html_1578824a55beb715af41318939aad454" style="width: 100.0%; height: 100.0%;">Universal Studios Florida<br>Espera media: 24.6 min</div>`)[0];
+                popup_274daa75f512f48183539b21d427713c.setContent(html_1578824a55beb715af41318939aad454);
+            
+        
+
+        circle_marker_d10115be66588a429b9c56fc08219d5d.bindPopup(popup_274daa75f512f48183539b21d427713c)
+        ;
+
+        
+    
+    
+            var circle_marker_c8f661a900f7d3bb91eeb7ff33c1fad7 = L.circleMarker(
+                [28.3897, -81.518],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.401298596330523, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_ea6f9b676990e536b40eb358ce69fe15 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_15449fb36ac57a4f96f5269998682ca8 = $(`<div id="html_15449fb36ac57a4f96f5269998682ca8" style="width: 100.0%; height: 100.0%;">Universal's Epic Universe<br>Espera media: 52.0 min</div>`)[0];
+                popup_ea6f9b676990e536b40eb358ce69fe15.setContent(html_15449fb36ac57a4f96f5269998682ca8);
+            
+        
+
+        circle_marker_c8f661a900f7d3bb91eeb7ff33c1fad7.bindPopup(popup_ea6f9b676990e536b40eb358ce69fe15)
+        ;
+
+        
+    
+    
+            var circle_marker_dad84033269cc605d505ae199a09845e = L.circleMarker(
+                [52.1936, 5.382],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_4d97be03236d8c11006f7deb1a02d2a9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_93439b131bc46426c0b40b2711a4dcbd = $(`<div id="html_93439b131bc46426c0b40b2711a4dcbd" style="width: 100.0%; height: 100.0%;">Wallibi Holland<br>Espera media: 4.5 min</div>`)[0];
+                popup_4d97be03236d8c11006f7deb1a02d2a9.setContent(html_93439b131bc46426c0b40b2711a4dcbd);
+            
+        
+
+        circle_marker_dad84033269cc605d505ae199a09845e.bindPopup(popup_4d97be03236d8c11006f7deb1a02d2a9)
+        ;
+
+        
+    
+    
+            var circle_marker_df069d04a9693e9ea66e261b113138b7 = L.circleMarker(
+                [-27.8604, 153.3175],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_b49421765fd4e47bad4067d2150c82cb);
+        
+    
+        var popup_6792e9b0d97da5a174de21b52dfe4cd6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e84091947db818ff5b705018048c8556 = $(`<div id="html_e84091947db818ff5b705018048c8556" style="width: 100.0%; height: 100.0%;">Warner Bros Movie World<br>Espera media: 16.2 min</div>`)[0];
+                popup_6792e9b0d97da5a174de21b52dfe4cd6.setContent(html_e84091947db818ff5b705018048c8556);
+            
+        
+
+        circle_marker_df069d04a9693e9ea66e261b113138b7.bindPopup(popup_6792e9b0d97da5a174de21b52dfe4cd6)
+        ;
+
+        
+    
+</script>
+</html>
