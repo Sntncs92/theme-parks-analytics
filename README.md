@@ -325,7 +325,7 @@ Mejora:                             68%
 ## Autor
 
 **Daniel Frases**  
-Data Scientist · ML Engineer
+Data Scientist · ML Engineer (In progress)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-daniel--frases-0A66C2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/daniel-frases/)
 [![GitHub](https://img.shields.io/badge/GitHub-Sntncs92-181717?style=flat-square&logo=github)](https://github.com/Sntncs92)
