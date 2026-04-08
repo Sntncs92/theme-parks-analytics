@@ -1,0 +1,17 @@
+[Unit]
+Description=Theme Parks Report Scheduler
+After=network.target postgresql.service theme-parks-collector.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/theme_parks_collector/theme_parks_collector_postgres
+EnvironmentFile=/opt/theme_parks_collector/theme_parks_collector_postgres/.env
+ExecStart=/usr/bin/python3 /opt/theme_parks_collector/theme_parks_collector_postgres/report_scheduler.py
+Restart=always
+RestartSec=30
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

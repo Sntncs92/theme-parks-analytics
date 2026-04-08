@@ -1,5 +1,9 @@
 # Credenciales
 .env
+config/database.json
+config/telegram.json
+theme_parks_collector_postgres/config/database.json
+theme_parks_collector_postgres/config/telegram.json
 
 # Entorno virtual
 venv/
@@ -23,3 +27,16 @@ outputs/
 eda/*.png
 
 export_sample.py
+
+# Assets pesados
+assets/logos/
+reports/
+
+# Logs
+theme_parks_collector_postgres/logs/
+
+# Backups
+*.bak
+
+#Logos
+theme_parks_collector_postgres/assets/logos/
