@@ -1,7 +1,7 @@
 # 🎢 Theme Parks Wait Time Analytics
 
 > **Predicting theme park attraction wait times using 5M+ real observations and LightGBM**  
-> *Real-time data collection · Exploratory analysis · Machine learning · 40 parks worldwide*
+> *Real-time data collection · Exploratory analysis · Machine learning · Automated daily reports · 40 parks worldwide*
 
 ---
 
@@ -26,6 +26,7 @@
 - [Data Pipeline](#data-pipeline)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
 - [Machine Learning Model](#machine-learning-model)
+- [Automated Daily Reports](#automated-daily-reports)
 - [Setup & Usage](#setup--usage)
 - [Roadmap](#roadmap)
 - [Author](#author)
@@ -36,7 +37,7 @@
 
 This project builds a complete analytics and machine learning pipeline to **predict wait times at theme park attractions worldwide** — enabling visitors to plan smarter, minimize queues, and make the most of their park experience.
 
-The system collects live data from **40 theme parks** every 15 minutes, stores it in a PostgreSQL database, and uses a LightGBM model trained on **5M+ historical observations** to generate wait time predictions.
+The system collects live data from **40 theme parks** every 15 minutes, stores it in a PostgreSQL database, uses a LightGBM model trained on **5M+ historical observations** to generate wait time predictions, and automatically delivers daily reports via Telegram when each park closes.
 
 ### Parks Covered
 - 🏰 **Disney:** Magic Kingdom, EPCOT, Hollywood Studios, Animal Kingdom, Disneyland CA, Disneyland Paris, Tokyo DisneySea, Shanghai, Hong Kong
@@ -67,28 +68,49 @@ The system collects live data from **40 theme parks** every 15 minutes, stores i
 ```
 theme_parks/
 ├── data/
-│   └── sample_100k.csv            # 100k representative records (all 40 parks)
+│   └── sample_100k.csv                    # 100k representative records (all 40 parks)
 ├── eda/
 │   └── notebooks/
-│       ├── 01_overview.ipynb          # Dataset summary and data quality
-│       ├── 02_temporal_patterns.ipynb # Hourly, daily, seasonal trends
-│       ├── 03_park_comparison.ipynb   # Disney vs Universal vs Six Flags
-│       ├── 04_ride_analysis.ipynb     # Most popular and most problematic rides
-│       ├── 05_geographic.ipynb        # Continent and country-level insights
-│       └── 06_events.ipynb            # Special event impact analysis
+│       ├── 01_overview.ipynb
+│       ├── 02_temporal_patterns.ipynb
+│       ├── 03_park_comparison.ipynb
+│       ├── 04_ride_analysis.ipynb
+│       ├── 05_geographic.ipynb
+│       └── 06_events.ipynb
 ├── ml/
 │   ├── notebooks/
-│   │   └── 01_modeling.ipynb          # Full modeling walkthrough
+│   │   └── 01_modeling.ipynb
 │   ├── src/
-│   │   ├── features.py                # FEATURES list, build_features(), drop_nulls()
-│   │   ├── train.py                   # Model training and serialization
-│   │   └── predict.py                 # Load model and generate predictions
+│   │   ├── features.py
+│   │   ├── train.py
+│   │   └── predict.py
 │   ├── models/
-│   │   ├── lgbm_v1.pkl                # Trained LightGBM model
-│   │   ├── baseline_dict.pkl          # Baseline (mean by hour/park)
-│   │   └── park_mapping.pkl           # Park name → encoded integer
+│   │   ├── lgbm_v1.pkl
+│   │   ├── baseline_dict.pkl
+│   │   └── park_mapping.pkl
 │   └── requirements.txt
-└── outputs/                           # Generated charts and exports
+├── report_scheduler.py                    # 24/7 report queue processor (systemd)
+├── theme-parks-scheduler.service          # systemd service definition
+├── outputs/
+└── theme_parks_collector_postgres/
+    ├── main.py                            # Data collector (24/7 loop)
+    ├── report_generator.py                # PNG report generator
+    ├── collectors/
+    │   ├── db_writer.py                   # PostgreSQL writer
+    │   ├── live_client.py                 # Wait times API client
+    │   └── schedule_client.py             # Schedule API client
+    ├── utils/
+    │   ├── db_config.py
+    │   ├── telegram_sender.py             # Telegram delivery
+    │   ├── logger.py
+    │   ├── config_loader.py
+    │   └── event_detector.py
+    ├── config/
+    │   ├── database.json                  # ⚠️ Not in repo
+    │   ├── telegram.json                  # ⚠️ Not in repo
+    │   └── parks.json
+    └── assets/
+        └── logos/                         # ⚠️ Not in repo — add manually
 ```
 
 ---
@@ -102,10 +124,12 @@ The collection system runs 24/7 on a Hetzner Cloud server (Ubuntu 24.04) and pol
 ### Database Schema
 
 ```sql
-parks       → park_id, park_name, country, continent
-rides       → ride_id (UUID), park_id, ride_name, tier, is_active
-wait_times  → measurement_id, ride_id, timestamp, status, wait_time, evento
-holidays    → date, country, holiday_name
+parks           → park_id, park_name, country, continent
+rides           → ride_id (UUID), park_id, ride_name, tier, is_active
+wait_times      → measurement_id, ride_id, timestamp, status, wait_time, evento
+holidays        → date, country, holiday_name
+park_schedules  → park_id, date, opening_time (TIMESTAMPTZ), closing_time (TIMESTAMPTZ)
+report_queue    → park_id, report_date, closing_time, status, triggered_at, completed_at
 ```
 
 **Status values:** `OPERATING` · `CLOSED` · `DOWN` · `REFURBISHMENT`
@@ -156,6 +180,36 @@ Improvement:                      68%
 
 ---
 
+## Automated Daily Reports
+
+When each park closes, the system automatically generates and delivers a daily report via Telegram — no manual intervention required.
+
+### Pipeline
+
+```
+Collector detects park closing
+        ↓
+report_queue (PostgreSQL) — status: pending
+        ↓
+report_scheduler.py checks queue every 5 min
+        ↓
+30-min grace window (ensures last collection is complete)
+        ↓
+report_generator.py builds 1080px PNG
+  · Operator brand colors + park logo
+  · Top 3 rides per tier (Star / Popular / Family)
+  · Hourly wait time chart for the star attraction
+  · Daily KPIs: peak hour, peak wait, best hour, % operating
+        ↓
+telegram_sender.py delivers ES + EN versions
+```
+
+### Timezone handling
+
+Parks across 4 continents close at very different UTC times. `park_schedules` stores `opening_time` and `closing_time` as `TIMESTAMPTZ` sourced directly from the ThemeParks.wiki API — Tokyo Disney closes around 12:00 UTC, European parks between 15:00–20:00 UTC, and US parks from 00:00–05:00 UTC the following day.
+
+---
+
 ## Setup & Usage
 
 ### Prerequisites
@@ -195,9 +249,10 @@ Simply open any notebook in `eda/` or `ml/notebooks/` and point the data loading
 - [x] Phase 1 — Data infrastructure & 24/7 collector
 - [x] Phase 2 — Exploratory Data Analysis (6 notebooks)
 - [x] Phase 3 — LightGBM model (MAE ~4.5 min)
-- [ ] Phase 4 — Interactive public dashboard (Streamlit → React)
-- [ ] Phase 5 — Public REST API (FastAPI)
-- [ ] Phase 6 — Portfolio documentation & case study
+- [x] Phase 4 — Automated daily reports with Telegram delivery
+- [ ] Phase 5 — Interactive public dashboard (Streamlit → React)
+- [ ] Phase 6 — Public REST API (FastAPI)
+- [ ] Phase 7 — Portfolio documentation & case study
 
 ---
 
@@ -216,7 +271,7 @@ Data Scientist · ML Engineer
 # 🎢 Theme Parks Wait Time Analytics *(Versión en Español)*
 
 > **Predicción de tiempos de espera en atracciones de parques temáticos con 5M+ observaciones reales y LightGBM**  
-> *Recogida de datos en tiempo real · Análisis exploratorio · Machine learning · 40 parques en todo el mundo*
+> *Recogida de datos en tiempo real · Análisis exploratorio · Machine learning · Reportes diarios automáticos · 40 parques en todo el mundo*
 
 ---
 
@@ -224,7 +279,7 @@ Data Scientist · ML Engineer
 
 Este proyecto construye un pipeline completo de analítica y machine learning para **predecir los tiempos de espera en atracciones de parques temáticos de todo el mundo**, ayudando a los visitantes a planificar mejor sus visitas y minimizar las colas.
 
-El sistema recoge datos en vivo de **40 parques temáticos** cada 15 minutos, los almacena en PostgreSQL y utiliza un modelo LightGBM entrenado con más de **5 millones de observaciones históricas** para generar predicciones.
+El sistema recoge datos en vivo de **40 parques temáticos** cada 15 minutos, los almacena en PostgreSQL, utiliza un modelo LightGBM entrenado con más de **5 millones de observaciones históricas** para generar predicciones, y entrega automáticamente informes diarios por Telegram cuando cada parque cierra.
 
 ### Parques incluidos
 - 🏰 **Disney:** Magic Kingdom, EPCOT, Hollywood Studios, Animal Kingdom, Disneyland CA, Disneyland París, Tokyo DisneySea, Shanghái, Hong Kong
@@ -299,6 +354,36 @@ Mejora:                             68%
 
 ---
 
+## Reportes diarios automáticos
+
+Cuando cada parque cierra, el sistema genera y entrega automáticamente un informe diario por Telegram, sin intervención manual.
+
+### Pipeline
+
+```
+El colector detecta el cierre del parque
+        ↓
+report_queue (PostgreSQL) — status: pending
+        ↓
+report_scheduler.py revisa la cola cada 5 min
+        ↓
+Ventana de gracia de 30 min (garantiza la última recogida)
+        ↓
+report_generator.py construye un PNG de 1080px
+  · Colores del operador + logo del parque
+  · Top 3 atracciones por tier (Estrella / Popular / Familiar)
+  · Gráfico horario de la atracción estrella
+  · KPIs del día: hora pico, espera pico, mejor hora, % operativas
+        ↓
+telegram_sender.py entrega versión ES + EN
+```
+
+### Gestión de zonas horarias
+
+Los parques de 4 continentes cierran a horas UTC muy distintas. `park_schedules` almacena `opening_time` y `closing_time` como `TIMESTAMPTZ` obtenidos directamente de la API de ThemeParks.wiki — Tokyo Disney cierra sobre las 12:00 UTC, los parques europeos entre las 15:00 y las 20:00 UTC, y los estadounidenses entre las 00:00 y las 05:00 UTC del día siguiente.
+
+---
+
 ## Instalación y uso
 
 ### Requisitos
@@ -338,9 +423,10 @@ Abre cualquier notebook de `eda/` o `ml/notebooks/` y apunta la celda de carga d
 - [x] Fase 1 — Infraestructura y colector de datos 24/7
 - [x] Fase 2 — Análisis exploratorio (6 notebooks)
 - [x] Fase 3 — Modelo LightGBM (MAE ~4.5 min)
-- [ ] Fase 4 — Dashboard interactivo público (Streamlit → React)
-- [ ] Fase 5 — API REST pública (FastAPI)
-- [ ] Fase 6 — Documentación de portfolio y caso de estudio
+- [x] Fase 4 — Reportes diarios automáticos con entrega por Telegram
+- [ ] Fase 5 — Dashboard interactivo público (Streamlit → React)
+- [ ] Fase 6 — API REST pública (FastAPI)
+- [ ] Fase 7 — Documentación de portfolio y caso de estudio
 
 ---
 
